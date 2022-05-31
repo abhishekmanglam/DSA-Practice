@@ -1,0 +1,35 @@
+Question: For a given array of 0s and 1s, you can change atmost one 0 to 1. Find the maximum consecutive 1s after the operation.
+
+A=[0,0,0,1,1,1,1,0,1,1,1,0]
+n=len(A)
+flag="N"
+
+finalans=0
+for i in range(n):
+    if A[i]==0:
+        A[i]=1
+        flag="Y"
+        
+        ans=0
+        cnt=0
+        
+        for j in range (n):
+            if A[j]==1:
+                cnt+=1
+                ans=max(cnt,ans)
+            elif A[j]==0:
+        
+                cnt=0
+        print(ans,i)
+    else:
+        flag="N"
+    print('ChangedA',A)
+    #if a 0 was changed to 1, revert it back to 0
+    if flag=="Y":
+        A[i]=0
+    print('RevertedA',A)
+    print()
+
+    finalans=max(ans,finalans)
+
+print('finalans',finalans)
